@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Lagom&#39;s blog</title>
+  
+  <subtitle>Welcome to my blog</subtitle>
+  <link href="https://lagom072019.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://lagom072019.github.io/"/>
+  <updated>2023-10-04T12:57:00.091Z</updated>
+  <id>https://lagom072019.github.io/</id>
+  
+  <author>
+    <name>Lagom</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CE1</title>
+    <link href="https://lagom072019.github.io/2023/10/04/CE1/"/>
+    <id>https://lagom072019.github.io/2023/10/04/CE1/</id>
+    <published>2023-10-04T07:13:39.000Z</published>
+    <updated>2023-10-04T12:57:00.091Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="C1"><a href="#C1" class="headerlink" title="C1"></a>C1</h1><h2 id="C1-J"><a href="#C1-J" class="headerlink" title="C1-J"></a>C1-J</h2><h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><p><img src="/2023/10/04/CE1/image-7.png"></p><h3 id="问题解答："><a href="#问题解答：" class="headerlink" title="问题解答："></a>问题解答：</h3><p><img src="/2023/10/04/CE1/image-1.png"><br><img src="/2023/10/04/CE1/image-2.png"></p><p><strong>注意：当结果很大时，不能全部相加后再取模，否则即使使用 <code>long long </code>类型的变量依然有可能越界</strong></p><p><strong>正确做法：应该在其中的某些步骤先取模，然后再相加，最后再取模</strong><br><strong>关于代码中的最后一步：是因为C语言负数对正数取模后依然为负数，故添加这一步来进行修正</strong></p><p><em><strong>同样的，我们如果计算<code>x/y</code>向上取整的值，应该计算为<code>(x+y-1)/y</code></strong></em></p><h1 id="E1"><a href="#E1" class="headerlink" title="E1"></a>E1</h1><h2 id="E1-H"><a href="#E1-H" class="headerlink" title="E1-H"></a>E1-H</h2><h3 id="问题描述：-1"><a href="#问题描述：-1" class="headerlink" title="问题描述："></a>问题描述：</h3><p><img src="/2023/10/04/CE1/image-3.png"></p><h3 id="问题解答：-1"><a href="#问题解答：-1" class="headerlink" title="问题解答："></a>问题解答：</h3><pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &lt;stdio.h&gt;int main(){    int test;    int a, b;    scanf("%d", &amp;test);        while(test--)    {            scanf("%d %d", &amp;a, &amp;b);            int jud = 0;            for(int i = 1; i &lt;= 6; i++)                for(int j = 1; j &lt;= 6; j++)                    for(int k = 1; k &lt;= 6; k++)                        {                            int A = 0, B = 0;                            if(i == 1 || i == 4) A += i;                            else B += i;                            if(j == 1 || j == 4) A += j;                            else B += j;                            if(k == 1 || k == 4) A += k;                            else B += k;                            if(A == a &amp;&amp; B == b)                            jud = 1;                        }                    if(jud) printf("Yes\n");                    else printf("No\n");    }    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><em><strong>思考:如果不是三个骰子，而是n个骰子，那又该怎么解决呢？</strong></em></p><p><em><strong>答案在E2-J</strong></em></p><h2 id="E1-I"><a href="#E1-I" class="headerlink" title="E1-I"></a>E1-I</h2><h3 id="问题描述：-2"><a href="#问题描述：-2" class="headerlink" title="问题描述："></a>问题描述：</h3><p><img src="/2023/10/04/CE1/image-5.png"></p><h3 id="问题解答：-2"><a href="#问题解答：-2" class="headerlink" title="问题解答："></a>问题解答：</h3><p><img src="/2023/10/04/CE1/image-6.png"></p><pre class="line-numbers language-C" data-language="C"><code class="language-C">示例代码:2：#include&lt;stdio.h&gt;int main(){//读取    int m1, m2, m3;    int res1, res2, res3;    scanf("%d%d%d%d%d%d", &amp;m1, &amp;res1, &amp;m2, &amp;res2, &amp;m3, &amp;res3);//处理    int mul = res1;    for(int flag = 0; flag != 1; mul += m1)    {        if(mul % m2 == res2)        {            if(mul % m3 == res3)            {                flag = 1;            }        }    }        printf("%d", mul - m1);        return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><pre class="line-numbers language-C" data-language="C"><code class="language-C">示例代码3：#include&lt;stdio.h&gt;int main(){    //读取    int m1, m2, m3;    int res1, res2, res3;    scanf("%d%d%d%d%d%d", &amp;m1, &amp;res1, &amp;m2, &amp;res2, &amp;m3, &amp;res3);    //处理    int mul = m1 * m2 * m3;    int result = 0;    int t1 = mul / m1, t2 = mul / m2, t3 = mul / m3;    int tmp = t1 % m1; //当前循环变量    int cnt = 1;    while(tmp != 1) //先找到余1的    {        cnt++;        tmp = (t1 % m1) * (cnt % m1) % m1;    }    result += (res1 * cnt % mul) * t1 % mul; //再利用乘法找到余res1的    //使用取余运算防止乘法溢出    //当然使用long long int 也可以。    //以下类似    tmp = t2 % m2;    cnt = 1;    while(tmp != 1)    {    cnt++;    tmp = (t2 % m2) * (cnt % m2) % m2;    }    result = result % mul + (res2 * cnt % mul) * t2 % mul;    tmp = t3 % m3;    cnt = 1;    while(tmp != 1)    {        cnt++;        tmp = (t3 % m3) * (cnt % m3) % m3;    }    result = result % mul + (res3 * cnt % mul) * t3 % mul;    //需要注意，此处得到的结果并不一定是最小的，需要取模得到最小的。    printf("%d", result % mul);    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;C1&quot;&gt;&lt;a href=&quot;#C1&quot; class=&quot;headerlink&quot; title=&quot;C1&quot;&gt;&lt;/a&gt;C1&lt;/h1&gt;&lt;h2 id=&quot;C1-J&quot;&gt;&lt;a href=&quot;#C1-J&quot; class=&quot;headerlink&quot; title=&quot;C1-J&quot;&gt;&lt;/a&gt;C1-J&lt;/h</summary>
+      
+    
+    
+    
+    <category term="程序设计基础" scheme="https://lagom072019.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/"/>
+    
+    
+    <category term="难题&amp;&amp;易错题" scheme="https://lagom072019.github.io/tags/%E9%9A%BE%E9%A2%98-%E6%98%93%E9%94%99%E9%A2%98/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的第一篇博客文章</title>
+    <link href="https://lagom072019.github.io/2023/10/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/"/>
+    <id>https://lagom072019.github.io/2023/10/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/</id>
+    <published>2023-10-03T14:07:52.000Z</published>
+    <updated>2023-10-04T07:00:14.903Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="C1"><a href="#C1" class="headerlink" title="C1"></a>C1</h1><h2 id="C1-J"><a href="#C1-J" class="headerlink" title="C1-J"></a>C1-J</h2><h3 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h3><p><img src="/2023/10/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/image-7.png" alt="Alt text"></p><h3 id="问题解答："><a href="#问题解答：" class="headerlink" title="问题解答："></a>问题解答：</h3><p><img src="/2023/10/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/image-1.png" alt="Alt text"><br><img src="/2023/10/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/image-2.png" alt="Alt text"></p><p><strong>注意：当结果很大时，不能全部相加后再取模，否则即使使用 <code>long long </code>类型的变量依然有可能越界</strong></p><p><strong>正确做法：应该在其中的某些步骤先取模，然后再相加，最后再取模</strong><br><strong>关于代码中的最后一步：是因为C语言负数对正数取模后依然为负数，故添加这一步来进行修正</strong></p><p><em><strong>同样的，我们如果计算<code>x/y</code>向上取整的值，应该计算为<code>(x+y-1)/y</code></strong></em></p><h1 id="E1"><a href="#E1" class="headerlink" title="E1"></a>E1</h1><h2 id="E1-H"><a href="#E1-H" class="headerlink" title="E1-H"></a>E1-H</h2><h3 id="问题描述：-1"><a href="#问题描述：-1" class="headerlink" title="问题描述："></a>问题描述：</h3><p><img src="/2023/10/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/image-3.png" alt="Alt text"></p><h3 id="问题解答：-1"><a href="#问题解答：-1" class="headerlink" title="问题解答："></a>问题解答：</h3><pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &lt;stdio.h&gt;int main(){    int test;    int a, b;    scanf("%d", &amp;test);        while(test--)    {            scanf("%d %d", &amp;a, &amp;b);            int jud = 0;            for(int i = 1; i &lt;= 6; i++)                for(int j = 1; j &lt;= 6; j++)                    for(int k = 1; k &lt;= 6; k++)                        {                            int A = 0, B = 0;                            if(i == 1 || i == 4) A += i;                            else B += i;                            if(j == 1 || j == 4) A += j;                            else B += j;                            if(k == 1 || k == 4) A += k;                            else B += k;                            if(A == a &amp;&amp; B == b)                            jud = 1;                        }                    if(jud) printf("Yes\n");                    else printf("No\n");    }    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p><em><strong>思考:如果不是三个骰子，而是n个骰子，那又该怎么解决呢？</strong></em></p><p><em><strong>答案在E2-J</strong></em></p><h2 id="E1-I"><a href="#E1-I" class="headerlink" title="E1-I"></a>E1-I</h2><h3 id="问题描述：-2"><a href="#问题描述：-2" class="headerlink" title="问题描述："></a>问题描述：</h3><p><img src="/2023/10/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/image-5.png" alt="Alt text"></p><h3 id="问题解答：-2"><a href="#问题解答：-2" class="headerlink" title="问题解答："></a>问题解答：</h3><p><img src="/2023/10/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/image-6.png" alt="Alt text"></p><pre class="line-numbers language-C" data-language="C"><code class="language-C">示例代码:2：#include&lt;stdio.h&gt;int main(){//读取    int m1, m2, m3;    int res1, res2, res3;    scanf("%d%d%d%d%d%d", &amp;m1, &amp;res1, &amp;m2, &amp;res2, &amp;m3, &amp;res3);//处理    int mul = res1;    for(int flag = 0; flag != 1; mul += m1)    {        if(mul % m2 == res2)        {            if(mul % m3 == res3)            {                flag = 1;            }        }    }        printf("%d", mul - m1);        return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><pre class="line-numbers language-C" data-language="C"><code class="language-C">示例代码3：#include&lt;stdio.h&gt;int main(){    //读取    int m1, m2, m3;    int res1, res2, res3;    scanf("%d%d%d%d%d%d", &amp;m1, &amp;res1, &amp;m2, &amp;res2, &amp;m3, &amp;res3);    //处理    int mul = m1 * m2 * m3;    int result = 0;    int t1 = mul / m1, t2 = mul / m2, t3 = mul / m3;    int tmp = t1 % m1; //当前循环变量    int cnt = 1;    while(tmp != 1) //先找到余1的    {        cnt++;        tmp = (t1 % m1) * (cnt % m1) % m1;    }    result += (res1 * cnt % mul) * t1 % mul; //再利用乘法找到余res1的    //使用取余运算防止乘法溢出    //当然使用long long int 也可以。    //以下类似    tmp = t2 % m2;    cnt = 1;    while(tmp != 1)    {    cnt++;    tmp = (t2 % m2) * (cnt % m2) % m2;    }    result = result % mul + (res2 * cnt % mul) * t2 % mul;    tmp = t3 % m3;    cnt = 1;    while(tmp != 1)    {        cnt++;        tmp = (t3 % m3) * (cnt % m3) % m3;    }    result = result % mul + (res3 * cnt % mul) * t3 % mul;    //需要注意，此处得到的结果并不一定是最小的，需要取模得到最小的。    printf("%d", result % mul);    return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;C1&quot;&gt;&lt;a href=&quot;#C1&quot; class=&quot;headerlink&quot; title=&quot;C1&quot;&gt;&lt;/a&gt;C1&lt;/h1&gt;&lt;h2 id=&quot;C1-J&quot;&gt;&lt;a href=&quot;#C1-J&quot; class=&quot;headerlink&quot; title=&quot;C1-J&quot;&gt;&lt;/a&gt;C1-J&lt;/h</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://lagom072019.github.io/2023/10/03/hello-world/"/>
+    <id>https://lagom072019.github.io/2023/10/03/hello-world/</id>
+    <published>2023-10-03T09:09:32.914Z</published>
+    <updated>2023-10-03T09:09:32.914Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>

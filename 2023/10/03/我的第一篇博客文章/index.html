@@ -55,7 +55,10 @@
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Lagom's blog" type="application/atom+xml">
+</head>
 
 
 <body>
@@ -261,7 +264,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/lagom072019/lagom072019.github.io" class="waves-effect waves-light" target="_blank">
                 <i class="fab fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -318,7 +321,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/lagom072019/lagom072019.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -387,14 +390,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    703
+                    579
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 
@@ -425,33 +428,33 @@
 <h1 id="E1"><a href="#E1" class="headerlink" title="E1"></a>E1</h1><h2 id="E1-H"><a href="#E1-H" class="headerlink" title="E1-H"></a>E1-H</h2><h3 id="问题描述：-1"><a href="#问题描述：-1" class="headerlink" title="问题描述："></a>问题描述：</h3><p><img src="/2023/10/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/image-3.png" alt="Alt text"></p>
 <h3 id="问题解答：-1"><a href="#问题解答：-1" class="headerlink" title="问题解答："></a>问题解答：</h3><pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &lt;stdio.h&gt;
 int main()
-&#123;
+{
     int test;
     int a, b;
-    scanf(&quot;%d&quot;, &amp;test);
+    scanf("%d", &amp;test);
         while(test--)
-    &#123;
-            scanf(&quot;%d %d&quot;, &amp;a, &amp;b);
-            int jud &#x3D; 0;
-            for(int i &#x3D; 1; i &lt;&#x3D; 6; i++)
-                for(int j &#x3D; 1; j &lt;&#x3D; 6; j++)
-                    for(int k &#x3D; 1; k &lt;&#x3D; 6; k++)
-                        &#123;
-                            int A &#x3D; 0, B &#x3D; 0;
-                            if(i &#x3D;&#x3D; 1 || i &#x3D;&#x3D; 4) A +&#x3D; i;
-                            else B +&#x3D; i;
-                            if(j &#x3D;&#x3D; 1 || j &#x3D;&#x3D; 4) A +&#x3D; j;
-                            else B +&#x3D; j;
-                            if(k &#x3D;&#x3D; 1 || k &#x3D;&#x3D; 4) A +&#x3D; k;
-                            else B +&#x3D; k;
-                            if(A &#x3D;&#x3D; a &amp;&amp; B &#x3D;&#x3D; b)
-                            jud &#x3D; 1;
-                        &#125;
-                    if(jud) printf(&quot;Yes\n&quot;);
-                    else printf(&quot;No\n&quot;);
-    &#125;
+    {
+            scanf("%d %d", &amp;a, &amp;b);
+            int jud = 0;
+            for(int i = 1; i &lt;= 6; i++)
+                for(int j = 1; j &lt;= 6; j++)
+                    for(int k = 1; k &lt;= 6; k++)
+                        {
+                            int A = 0, B = 0;
+                            if(i == 1 || i == 4) A += i;
+                            else B += i;
+                            if(j == 1 || j == 4) A += j;
+                            else B += j;
+                            if(k == 1 || k == 4) A += k;
+                            else B += k;
+                            if(A == a &amp;&amp; B == b)
+                            jud = 1;
+                        }
+                    if(jud) printf("Yes\n");
+                    else printf("No\n");
+    }
     return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><em><strong>思考:如果不是三个骰子，而是n个骰子，那又该怎么解决呢？</strong></em></p>
 <p><em><strong>答案在E2-J</strong></em></p>
 <h2 id="E1-I"><a href="#E1-I" class="headerlink" title="E1-I"></a>E1-I</h2><h3 id="问题描述：-2"><a href="#问题描述：-2" class="headerlink" title="问题描述："></a>问题描述：</h3><p><img src="/2023/10/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/image-5.png" alt="Alt text"></p>
@@ -459,69 +462,69 @@ int main()
 <pre class="line-numbers language-C" data-language="C"><code class="language-C">示例代码:2：
 #include&lt;stdio.h&gt;
 int main()
-&#123;
-&#x2F;&#x2F;读取
+{
+//读取
     int m1, m2, m3;
     int res1, res2, res3;
-    scanf(&quot;%d%d%d%d%d%d&quot;, &amp;m1, &amp;res1, &amp;m2, &amp;res2, &amp;m3, &amp;res3);
-&#x2F;&#x2F;处理
-    int mul &#x3D; res1;
-    for(int flag &#x3D; 0; flag !&#x3D; 1; mul +&#x3D; m1)
-    &#123;
-        if(mul % m2 &#x3D;&#x3D; res2)
-        &#123;
-            if(mul % m3 &#x3D;&#x3D; res3)
-            &#123;
-                flag &#x3D; 1;
-            &#125;
-        &#125;
-    &#125;
-        printf(&quot;%d&quot;, mul - m1);
+    scanf("%d%d%d%d%d%d", &amp;m1, &amp;res1, &amp;m2, &amp;res2, &amp;m3, &amp;res3);
+//处理
+    int mul = res1;
+    for(int flag = 0; flag != 1; mul += m1)
+    {
+        if(mul % m2 == res2)
+        {
+            if(mul % m3 == res3)
+            {
+                flag = 1;
+            }
+        }
+    }
+        printf("%d", mul - m1);
         return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-C" data-language="C"><code class="language-C">示例代码3：
 #include&lt;stdio.h&gt;
 int main()
-&#123;
-    &#x2F;&#x2F;读取
+{
+    //读取
     int m1, m2, m3;
     int res1, res2, res3;
-    scanf(&quot;%d%d%d%d%d%d&quot;, &amp;m1, &amp;res1, &amp;m2, &amp;res2, &amp;m3, &amp;res3);
-    &#x2F;&#x2F;处理
-    int mul &#x3D; m1 * m2 * m3;
-    int result &#x3D; 0;
-    int t1 &#x3D; mul &#x2F; m1, t2 &#x3D; mul &#x2F; m2, t3 &#x3D; mul &#x2F; m3;
-    int tmp &#x3D; t1 % m1; &#x2F;&#x2F;当前循环变量
-    int cnt &#x3D; 1;
-    while(tmp !&#x3D; 1) &#x2F;&#x2F;先找到余1的
-    &#123;
+    scanf("%d%d%d%d%d%d", &amp;m1, &amp;res1, &amp;m2, &amp;res2, &amp;m3, &amp;res3);
+    //处理
+    int mul = m1 * m2 * m3;
+    int result = 0;
+    int t1 = mul / m1, t2 = mul / m2, t3 = mul / m3;
+    int tmp = t1 % m1; //当前循环变量
+    int cnt = 1;
+    while(tmp != 1) //先找到余1的
+    {
         cnt++;
-        tmp &#x3D; (t1 % m1) * (cnt % m1) % m1;
-    &#125;
-    result +&#x3D; (res1 * cnt % mul) * t1 % mul; &#x2F;&#x2F;再利用乘法找到余res1的
-    &#x2F;&#x2F;使用取余运算防止乘法溢出
-    &#x2F;&#x2F;当然使用long long int 也可以。
-    &#x2F;&#x2F;以下类似
-    tmp &#x3D; t2 % m2;
-    cnt &#x3D; 1;
-    while(tmp !&#x3D; 1)
-    &#123;
+        tmp = (t1 % m1) * (cnt % m1) % m1;
+    }
+    result += (res1 * cnt % mul) * t1 % mul; //再利用乘法找到余res1的
+    //使用取余运算防止乘法溢出
+    //当然使用long long int 也可以。
+    //以下类似
+    tmp = t2 % m2;
+    cnt = 1;
+    while(tmp != 1)
+    {
     cnt++;
-    tmp &#x3D; (t2 % m2) * (cnt % m2) % m2;
-    &#125;
-    result &#x3D; result % mul + (res2 * cnt % mul) * t2 % mul;
-    tmp &#x3D; t3 % m3;
-    cnt &#x3D; 1;
-    while(tmp !&#x3D; 1)
-    &#123;
+    tmp = (t2 % m2) * (cnt % m2) % m2;
+    }
+    result = result % mul + (res2 * cnt % mul) * t2 % mul;
+    tmp = t3 % m3;
+    cnt = 1;
+    while(tmp != 1)
+    {
         cnt++;
-        tmp &#x3D; (t3 % m3) * (cnt % m3) % m3;
-    &#125;
-    result &#x3D; result % mul + (res3 * cnt % mul) * t3 % mul;
-    &#x2F;&#x2F;需要注意，此处得到的结果并不一定是最小的，需要取模得到最小的。
-    printf(&quot;%d&quot;, result % mul);
+        tmp = (t3 % m3) * (cnt % m3) % m3;
+    }
+    result = result % mul + (res3 * cnt % mul) * t3 % mul;
+    //需要注意，此处得到的结果并不一定是最小的，需要取模得到最小的。
+    printf("%d", result % mul);
     return 0;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -623,7 +626,7 @@ int main()
                         <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
                     </div>
                     <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                        <img src="/medias/reward/wechat.jpg" class="reward-img" alt="微信打赏二维码">
                     </div>
                 </div>
             </div>
@@ -687,11 +690,23 @@ int main()
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Lagom
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/" class="post-category">
+                                    程序设计基础
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E9%9A%BE%E9%A2%98-%E6%98%93%E9%94%99%E9%A2%98/">
+                        <span class="chip bg-color">难题&amp;&amp;易错题</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -855,67 +870,13 @@ int main()
 
     <footer class="page-footer bg-color">
     
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
 
     <div class="container row center-align"
          style="margin-bottom: 0px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2019-2023</span>
+                <span id="year">2023</span>
             
             <a href="/about" target="_blank">Lagom</a>
             |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
@@ -924,7 +885,7 @@ int main()
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1.5k</span>
+                        class="white-color">1.2k</span>
             
             
             
@@ -950,13 +911,13 @@ int main()
             
         </div>
         <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/blinkfox" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+    <a href="https://github.com/lagom072019" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
 
 
 
-    <a href="mailto:1181062873@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+    <a href="mailto:1966915938@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
         <i class="fas fa-envelope-open"></i>
     </a>
 
@@ -966,7 +927,7 @@ int main()
 
 
 
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1181062873" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1181062873" data-position="top" data-delay="50">
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1966915938" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1966915938" data-position="top" data-delay="50">
         <i class="fab fa-qq"></i>
     </a>
 
@@ -1142,10 +1103,6 @@ $(function () {
     <!-- 鼠标星星特效 -->
     
 
-     
-        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
-        <script src="/libs/others/TencentCaptcha.js"></script>
-        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
     
 
     <!-- Baidu Analytics -->
@@ -1167,8 +1124,6 @@ $(function () {
 </script>
 
     
-    <script src="/libs/others/clicklove.js" async="async"></script>
-    
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
     
@@ -1179,6 +1134,11 @@ $(function () {
 
     <!--腾讯兔小巢-->
     
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
     
 
     
