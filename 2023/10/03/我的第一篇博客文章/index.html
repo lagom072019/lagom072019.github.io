@@ -385,14 +385,32 @@
                 
 
                 
-
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    703
+                </div>
                 
 
                 
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    3 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
             </div>
         </div>
         <hr class="clearfix">
 
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.min.css">
         
 
         
@@ -405,13 +423,105 @@
 <p><strong>正确做法：应该在其中的某些步骤先取模，然后再相加，最后再取模</strong><br><strong>关于代码中的最后一步：是因为C语言负数对正数取模后依然为负数，故添加这一步来进行修正</strong></p>
 <p><em><strong>同样的，我们如果计算<code>x/y</code>向上取整的值，应该计算为<code>(x+y-1)/y</code></strong></em></p>
 <h1 id="E1"><a href="#E1" class="headerlink" title="E1"></a>E1</h1><h2 id="E1-H"><a href="#E1-H" class="headerlink" title="E1-H"></a>E1-H</h2><h3 id="问题描述：-1"><a href="#问题描述：-1" class="headerlink" title="问题描述："></a>问题描述：</h3><p><img src="/2023/10/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/image-3.png" alt="Alt text"></p>
-<h3 id="问题解答：-1"><a href="#问题解答：-1" class="headerlink" title="问题解答："></a>问题解答：</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> test;</span><br><span class="line">    <span class="type">int</span> a, b;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;test);</span><br><span class="line">        <span class="keyword">while</span>(test--)</span><br><span class="line">    &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>, &amp;a, &amp;b);</span><br><span class="line">            <span class="type">int</span> jud = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">6</span>; i++)</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">6</span>; j++)</span><br><span class="line">                    <span class="keyword">for</span>(<span class="type">int</span> k = <span class="number">1</span>; k &lt;= <span class="number">6</span>; k++)</span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="type">int</span> A = <span class="number">0</span>, B = <span class="number">0</span>;</span><br><span class="line">                            <span class="keyword">if</span>(i == <span class="number">1</span> || i == <span class="number">4</span>) A += i;</span><br><span class="line">                            <span class="keyword">else</span> B += i;</span><br><span class="line">                            <span class="keyword">if</span>(j == <span class="number">1</span> || j == <span class="number">4</span>) A += j;</span><br><span class="line">                            <span class="keyword">else</span> B += j;</span><br><span class="line">                            <span class="keyword">if</span>(k == <span class="number">1</span> || k == <span class="number">4</span>) A += k;</span><br><span class="line">                            <span class="keyword">else</span> B += k;</span><br><span class="line">                            <span class="keyword">if</span>(A == a &amp;&amp; B == b)</span><br><span class="line">                            jud = <span class="number">1</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    <span class="keyword">if</span>(jud) <span class="built_in">printf</span>(<span class="string">&quot;Yes\n&quot;</span>);</span><br><span class="line">                    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;No\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="问题解答：-1"><a href="#问题解答：-1" class="headerlink" title="问题解答："></a>问题解答：</h3><pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &lt;stdio.h&gt;
+int main()
+&#123;
+    int test;
+    int a, b;
+    scanf(&quot;%d&quot;, &amp;test);
+        while(test--)
+    &#123;
+            scanf(&quot;%d %d&quot;, &amp;a, &amp;b);
+            int jud &#x3D; 0;
+            for(int i &#x3D; 1; i &lt;&#x3D; 6; i++)
+                for(int j &#x3D; 1; j &lt;&#x3D; 6; j++)
+                    for(int k &#x3D; 1; k &lt;&#x3D; 6; k++)
+                        &#123;
+                            int A &#x3D; 0, B &#x3D; 0;
+                            if(i &#x3D;&#x3D; 1 || i &#x3D;&#x3D; 4) A +&#x3D; i;
+                            else B +&#x3D; i;
+                            if(j &#x3D;&#x3D; 1 || j &#x3D;&#x3D; 4) A +&#x3D; j;
+                            else B +&#x3D; j;
+                            if(k &#x3D;&#x3D; 1 || k &#x3D;&#x3D; 4) A +&#x3D; k;
+                            else B +&#x3D; k;
+                            if(A &#x3D;&#x3D; a &amp;&amp; B &#x3D;&#x3D; b)
+                            jud &#x3D; 1;
+                        &#125;
+                    if(jud) printf(&quot;Yes\n&quot;);
+                    else printf(&quot;No\n&quot;);
+    &#125;
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><em><strong>思考:如果不是三个骰子，而是n个骰子，那又该怎么解决呢？</strong></em></p>
 <p><em><strong>答案在E2-J</strong></em></p>
 <h2 id="E1-I"><a href="#E1-I" class="headerlink" title="E1-I"></a>E1-I</h2><h3 id="问题描述：-2"><a href="#问题描述：-2" class="headerlink" title="问题描述："></a>问题描述：</h3><p><img src="/2023/10/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/image-5.png" alt="Alt text"></p>
 <h3 id="问题解答：-2"><a href="#问题解答：-2" class="headerlink" title="问题解答："></a>问题解答：</h3><p><img src="/2023/10/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/image-6.png" alt="Alt text"></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">示例代码:<span class="number">2</span>：</span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//读取</span></span><br><span class="line">    <span class="type">int</span> m1, m2, m3;</span><br><span class="line">    <span class="type">int</span> res1, res2, res3;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d%d%d&quot;</span>, &amp;m1, &amp;res1, &amp;m2, &amp;res2, &amp;m3, &amp;res3);</span><br><span class="line"><span class="comment">//处理</span></span><br><span class="line">    <span class="type">int</span> mul = res1;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> flag = <span class="number">0</span>; flag != <span class="number">1</span>; mul += m1)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(mul % m2 == res2)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(mul % m3 == res3)</span><br><span class="line">            &#123;</span><br><span class="line">                flag = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, mul - m1);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">示例代码<span class="number">3</span>：</span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//读取</span></span><br><span class="line">    <span class="type">int</span> m1, m2, m3;</span><br><span class="line">    <span class="type">int</span> res1, res2, res3;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d%d%d&quot;</span>, &amp;m1, &amp;res1, &amp;m2, &amp;res2, &amp;m3, &amp;res3);</span><br><span class="line">    <span class="comment">//处理</span></span><br><span class="line">    <span class="type">int</span> mul = m1 * m2 * m3;</span><br><span class="line">    <span class="type">int</span> result = <span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> t1 = mul / m1, t2 = mul / m2, t3 = mul / m3;</span><br><span class="line">    <span class="type">int</span> tmp = t1 % m1; <span class="comment">//当前循环变量</span></span><br><span class="line">    <span class="type">int</span> cnt = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(tmp != <span class="number">1</span>) <span class="comment">//先找到余1的</span></span><br><span class="line">    &#123;</span><br><span class="line">        cnt++;</span><br><span class="line">        tmp = (t1 % m1) * (cnt % m1) % m1;</span><br><span class="line">    &#125;</span><br><span class="line">    result += (res1 * cnt % mul) * t1 % mul; <span class="comment">//再利用乘法找到余res1的</span></span><br><span class="line">    <span class="comment">//使用取余运算防止乘法溢出</span></span><br><span class="line">    <span class="comment">//当然使用long long int 也可以。</span></span><br><span class="line">    <span class="comment">//以下类似</span></span><br><span class="line">    tmp = t2 % m2;</span><br><span class="line">    cnt = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(tmp != <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">    cnt++;</span><br><span class="line">    tmp = (t2 % m2) * (cnt % m2) % m2;</span><br><span class="line">    &#125;</span><br><span class="line">    result = result % mul + (res2 * cnt % mul) * t2 % mul;</span><br><span class="line">    tmp = t3 % m3;</span><br><span class="line">    cnt = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(tmp != <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cnt++;</span><br><span class="line">        tmp = (t3 % m3) * (cnt % m3) % m3;</span><br><span class="line">    &#125;</span><br><span class="line">    result = result % mul + (res3 * cnt % mul) * t3 % mul;</span><br><span class="line">    <span class="comment">//需要注意，此处得到的结果并不一定是最小的，需要取模得到最小的。</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, result % mul);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">示例代码:2：
+#include&lt;stdio.h&gt;
+int main()
+&#123;
+&#x2F;&#x2F;读取
+    int m1, m2, m3;
+    int res1, res2, res3;
+    scanf(&quot;%d%d%d%d%d%d&quot;, &amp;m1, &amp;res1, &amp;m2, &amp;res2, &amp;m3, &amp;res3);
+&#x2F;&#x2F;处理
+    int mul &#x3D; res1;
+    for(int flag &#x3D; 0; flag !&#x3D; 1; mul +&#x3D; m1)
+    &#123;
+        if(mul % m2 &#x3D;&#x3D; res2)
+        &#123;
+            if(mul % m3 &#x3D;&#x3D; res3)
+            &#123;
+                flag &#x3D; 1;
+            &#125;
+        &#125;
+    &#125;
+        printf(&quot;%d&quot;, mul - m1);
+        return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-C" data-language="C"><code class="language-C">示例代码3：
+#include&lt;stdio.h&gt;
+int main()
+&#123;
+    &#x2F;&#x2F;读取
+    int m1, m2, m3;
+    int res1, res2, res3;
+    scanf(&quot;%d%d%d%d%d%d&quot;, &amp;m1, &amp;res1, &amp;m2, &amp;res2, &amp;m3, &amp;res3);
+    &#x2F;&#x2F;处理
+    int mul &#x3D; m1 * m2 * m3;
+    int result &#x3D; 0;
+    int t1 &#x3D; mul &#x2F; m1, t2 &#x3D; mul &#x2F; m2, t3 &#x3D; mul &#x2F; m3;
+    int tmp &#x3D; t1 % m1; &#x2F;&#x2F;当前循环变量
+    int cnt &#x3D; 1;
+    while(tmp !&#x3D; 1) &#x2F;&#x2F;先找到余1的
+    &#123;
+        cnt++;
+        tmp &#x3D; (t1 % m1) * (cnt % m1) % m1;
+    &#125;
+    result +&#x3D; (res1 * cnt % mul) * t1 % mul; &#x2F;&#x2F;再利用乘法找到余res1的
+    &#x2F;&#x2F;使用取余运算防止乘法溢出
+    &#x2F;&#x2F;当然使用long long int 也可以。
+    &#x2F;&#x2F;以下类似
+    tmp &#x3D; t2 % m2;
+    cnt &#x3D; 1;
+    while(tmp !&#x3D; 1)
+    &#123;
+    cnt++;
+    tmp &#x3D; (t2 % m2) * (cnt % m2) % m2;
+    &#125;
+    result &#x3D; result % mul + (res2 * cnt % mul) * t2 % mul;
+    tmp &#x3D; t3 % m3;
+    cnt &#x3D; 1;
+    while(tmp !&#x3D; 1)
+    &#123;
+        cnt++;
+        tmp &#x3D; (t3 % m3) * (cnt % m3) % m3;
+    &#125;
+    result &#x3D; result % mul + (res3 * cnt % mul) * t3 % mul;
+    &#x2F;&#x2F;需要注意，此处得到的结果并不一定是最小的，需要取模得到最小的。
+    printf(&quot;%d&quot;, result % mul);
+    return 0;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -635,6 +745,9 @@
 <script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
 
 
+  <!-- 是否加载使用自带的 prismjs. -->
+  <script type="text/javascript" src="/libs/prism/prism.min.js"></script>
+
 
 <!-- 代码语言 -->
 
@@ -809,6 +922,9 @@
             |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
             
             <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">1.5k</span>
             
             
             
